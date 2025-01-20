@@ -177,4 +177,6 @@ async function run() {
 }
 
 // Start the application
-run().catch(logger.error);
+run().catch(error => {
+    logger.error('Error in run:', error);
+});
