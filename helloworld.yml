@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  helloworld:
+    image: tajulasri443/helloworld
+    ports:
+      - 3000:3000
+    logging:
+      driver: json-file
+    deploy:
+      labels:
+        swarm.autoscaler: "true"
+        swarm.autoscaler.maximum: "4"
+        swarm.autoscaler.minimum: "3"
+        swarm.cpu.lower_limit: "25"
+        swarm.cpu.upper_limit: "85"
